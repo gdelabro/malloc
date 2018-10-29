@@ -58,6 +58,7 @@ clean:
 fclean: clean
 	@make -C ft_printf fclean
 	@rm -rf $(NAME)
+	@rm -rf libft_malloc.so
 	@echo "\033[32;1m$(NAME)\033[0;1m: $(NAME) deleted"
 
 re: fclean all
