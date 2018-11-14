@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiny_malloc.c                                      :+:      :+:    :+:   */
+/*   small_malloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 17:20:00 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 18:44:14 by gdelabro         ###   ########.fr       */
+/*   Created: 2018/11/13 15:44:58 by gdelabro          #+#    #+#             */
+/*   Updated: 2018/11/14 18:44:32 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../malloc.h"
 
-int   compare_tiny_ptr(void *addr)
+int   compare_small_ptr(void *addr)
 {
   t_block *block;
 
@@ -22,30 +22,30 @@ int   compare_tiny_ptr(void *addr)
   return (0);
 }
 
-void   *find_tiny_ptr(void)
+void   *find_small_ptr(void)
 {
   void  *addr;
 
-  addr = e.mem_tiny;
+  addr = e.mem_small;
   while (1)
   {
-    if ((addr + TINY_BLOCK) >= e.mem_tiny + TINY_MEM_LENGTH)
+    if ((addr + SMALL_BLOCK) >= e.mem_small + SMALL_MEM_LENGTH)
       return (NULL);
-    if (compare_tiny_ptr(addr))
+    if (compare_small_ptr(addr))
       return (addr);
-    addr += TINY_BLOCK;
+    addr += SMALL_BLOCK;
   }
   return (NULL);
 }
 
-void   *tiny_malloc(size_t s)
+void   *small_malloc(size_t s)
 {
   void  *addr;
 
-  if (!init_global_var_tiny())
+  if (!init_global_var_small())
     return (NULL);
-  addr = find_tiny_ptr();
-  addr ? creat_block(addr, s, TINY) : 0;
+  addr = find_small_ptr();
+  addr ? creat_block(addr, s, SMALL) : 0;
   /*if (!addr)
     return (large_malloc(s));*/
   return (addr);

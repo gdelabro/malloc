@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:12:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/12 20:14:08 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:16:07 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@
 # define SMALL 2
 # define LARGE 4
 
-# define NB_BLOCKS		100
-# define TINY_BLOCK		256
-# define SMALL_BLOCK	4096
+# define TINY_MAX     128
+# define TINY_BLOCK	  (TINY_MAX + sizeof(t_block))
+# define TINY_MEM_LENGTH (15 * getpagesize())
 
-# define TINY_MEM_LENGTH (10 * getpagesize())
-# define SMALL_MEM_LENGTH (100 * getpagesize())
+# define SMALL_MAX    1024
+# define SMALL_BLOCK	(SMALL_MAX + sizeof(t_block))
+# define SMALL_MEM_LENGTH (265 * getpagesize())
 
 typedef struct s_block
 {
+  int          free;
   void         *addr;
   int          size;
   int          type;
@@ -54,7 +56,11 @@ void	         *malloc2(size_t s);
 void	         *realloc2(void *ptr, size_t size);
 void           show_alloc_mem();
 void           *tiny_malloc(size_t s);
+void           *small_malloc(size_t s);
+void           *large_malloc(size_t s);
 int            init_global_var();
+int            init_global_var_tiny();
+int            init_global_var_small();
 void           creat_block(void *addr, int size, int type);
 
 #endif

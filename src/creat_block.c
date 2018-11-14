@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:18:47 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/12 20:03:06 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:22:33 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void *new_block(void *addr, int s, int type)
 {
   t_block   *block;
 
-  block = mmap(NULL, sizeof(t_block),
-  PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
-  block->addr = addr;
+  block = addr;
+  block->free = 1;
+  block->addr = addr + sizeof(t_block);
   block->size = s;
   block->type = type;
   block->next = NULL;
@@ -34,8 +34,8 @@ void creat_block(void *addr, int size, int type)
     e.block = new_block(addr, size, type);
   else
   {
-    while (block->next)
-      block = block->next;
-    block->next = new_block(addr, size, type);
+    block = new_block(addr, size, type);
+    block->next = e.block;
+    e.block = block;
   }
 }

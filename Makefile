@@ -6,7 +6,7 @@
 #    By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/15 15:37:25 by gdelabro          #+#    #+#              #
-#    Updated: 2018/11/12 19:25:42 by gdelabro         ###   ########.fr        #
+#    Updated: 2018/11/14 19:21:10 by gdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 NAME = libft_malloc_$(HOSTTYPE).so
 
 SRC_PATH = src
-SRC_NAME = malloc.c free.c creat_block.c tiny_malloc.c init_global_var.c
+SRC_NAME = malloc.c free.c creat_block.c tiny_malloc.c init_global_var.c small_malloc.c large_malloc.c
 
 OBJ_PATH = obj
 OBJ_NAME = $(SRC_NAME:.c=.o)

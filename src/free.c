@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdelabro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:31:26 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/07 17:31:28 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/14 19:34:37 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void free2(void *ptr)
 {
-  (void)ptr;
-  return ;
+  if (!ptr)
+    return ;
 }

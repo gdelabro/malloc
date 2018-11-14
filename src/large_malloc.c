@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   large_malloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/25 16:23:15 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 19:29:32 by gdelabro         ###   ########.fr       */
+/*   Created: 2018/11/14 17:09:56 by gdelabro          #+#    #+#             */
+/*   Updated: 2018/11/14 19:25:23 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../malloc.h"
 
-t_malloc e = {
-  NULL,
-  NULL,
-  NULL
-};
-
-void      *malloc2(size_t s)
+void   *large_malloc(size_t s)
 {
-  if (s <= 0)
-    return (NULL);
-  else if (s <= TINY_MAX)
-    return (tiny_malloc(s));
-  else if (s <= SMALL_MAX)
-    return (small_malloc(s));
-  else
-    return (large_malloc(s));
-  return (NULL);
+    void *addr;
+
+    addr = mmap(NULL, s + sizeof(t_block), PROT_READ | PROT_WRITE,
+      MAP_ANON | MAP_PRIVATE, -1, 0);
+    if (addr == (void*)-1)
+      return (NULL);
+    creat_block(addr, s, LARGE);
+    return (addr);
 }
