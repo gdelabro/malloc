@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:23:15 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 19:29:32 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/14 20:01:13 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 t_malloc e = {
   NULL,
   NULL,
-  NULL
+  NULL,
+  0
 };
 
 void      *malloc2(size_t s)

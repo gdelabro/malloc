@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:12:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 19:16:07 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/14 20:01:07 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_malloc
   t_block      *block;
   void         *mem_tiny;
   void         *mem_small;
+  int          total;
 }              t_malloc;
 
 t_malloc e;

@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 17:20:00 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 18:44:14 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/15 18:50:09 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void   *tiny_malloc(size_t s)
     return (NULL);
   addr = find_tiny_ptr();
   addr ? creat_block(addr, s, TINY) : 0;
-  /*if (!addr)
-    return (large_malloc(s));*/
-  return (addr);
+  if (!addr)
+    return (large_malloc(s));
+  e.total += s;
+  return (addr + sizeof(t_block));
 }

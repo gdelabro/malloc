@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 17:09:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 19:25:23 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/15 18:50:47 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void   *large_malloc(size_t s)
     if (addr == (void*)-1)
       return (NULL);
     creat_block(addr, s, LARGE);
+    e.total += s;
     return (addr);
 }
