@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:23:15 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 20:01:13 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/15 19:32:53 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,14 @@ void      *malloc2(size_t s)
   else
     return (large_malloc(s));
   return (NULL);
+}
+
+void    *calloc2(size_t nmemb, size_t size)
+{
+  void *addr;
+
+  addr = malloc2(nmemb * size);
+  if (addr)
+    ft_memset(addr, 0, nmemb * size);
+  return (addr);
 }

@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/05 12:46:39 by gdelabro          #+#    #+#              #
-#    Updated: 2018/10/26 17:32:43 by gdelabro         ###   ########.fr        #
+#    Updated: 2018/11/16 18:48:31 by gdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FC = ft_bzero.c ft_strcmp.c ft_strstr.c ft_memset.c ft_strlen.c ft_strcat.c ft_taille_nb.c
+FC = ft_bzero.c ft_strcmp.c ft_strstr.c ft_memset.c ft_strlen.c ft_strcat.c\
+		 ft_taille_nb.c ft_memmove.c ft_memcpy.c
 
 OBJ = $(FC:.c=.o)
 

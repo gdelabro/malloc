@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gdelabro <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/15 15:37:25 by gdelabro          #+#    #+#              #
-#    Updated: 2018/10/26 17:34:54 by gdelabro         ###   ########.fr        #
+#    Updated: 2018/11/16 20:29:34 by gdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-LIBFT_SRC = ft_bzero.c ft_strcmp.c ft_strstr.c ft_memset.c ft_strlen.c ft_strcat.c ft_taille_nb.c
+LIBFT_SRC = ft_bzero.c ft_strcmp.c ft_strstr.c ft_memset.c ft_strlen.c ft_strcat.c ft_taille_nb.c\
+						ft_memcpy.c ft_memmove.c
 
 LIBFT_OBJ = $(addprefix libft/,$(LIBFT_SRC:.c=.o))
 

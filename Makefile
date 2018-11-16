@@ -6,7 +6,7 @@
 #    By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/15 15:37:25 by gdelabro          #+#    #+#              #
-#    Updated: 2018/11/14 19:58:05 by gdelabro         ###   ########.fr        #
+#    Updated: 2018/11/16 19:58:14 by gdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft_malloc_$(HOSTTYPE).so
 
 SRC_PATH = src
 SRC_NAME = malloc.c free.c creat_block.c tiny_malloc.c init_global_var.c\
-small_malloc.c large_malloc.c show_alloc_mem.c
+small_malloc.c large_malloc.c show_alloc_mem.c realloc.c
 
 OBJ_PATH = obj
 OBJ_NAME = $(SRC_NAME:.c=.o)

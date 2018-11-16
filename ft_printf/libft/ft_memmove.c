@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:59:35 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/16 21:11:46 by gdelabro         ###   ########.fr       */
+/*   Created: 2016/11/11 12:06:09 by gdelabro          #+#    #+#             */
+/*   Updated: 2018/11/16 20:23:52 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[]) {
-  char *str;
-  int i;
-
-  malloc2(10);
-  malloc2(10);
-  str = malloc2(10);
-  malloc2(10);
-  malloc2(10);
-
-
-  str = realloc2(str, 130);
-  show_alloc_mem();
-  ft_printf("\n\n");
-
-  str = realloc2(str, 10210);
-  show_alloc_mem();
-  ft_printf("\n\n");
-
-  str = realloc2(str, 10);
-  str = realloc2(0, 30);
-  show_alloc_mem();
-  return 0;
+void	*ft_memmove(void *dest, const void *src, size_t len)
+{
+	if (!len || dest == src)
+		return (dest);
+	if (dest <= src)
+		ft_memcpy(dest, src, len);
+	else
+	{
+		while ((long long)--len >= 0)
+			*((char *)dest + len) = *((char *)src + len);
+	}
+	return (dest);
 }

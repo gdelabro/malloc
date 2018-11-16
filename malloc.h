@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:12:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 20:01:07 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/15 19:33:20 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_malloc e;
 void	         free2(void *ptr);
 void	         *malloc2(size_t s);
 void	         *realloc2(void *ptr, size_t size);
+void           *calloc2(size_t nmemb, size_t size);
 void           show_alloc_mem();
 void           *tiny_malloc(size_t s);
 void           *small_malloc(size_t s);
