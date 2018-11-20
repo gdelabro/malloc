@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:44:58 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/15 18:50:28 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/20 21:10:14 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int   compare_small_ptr(void *addr)
   t_block *block;
 
   block = addr;
-  if (block->free == 0)
+  if (block->free != MAGIC_FREE)
     return (1);
   return (0);
 }
@@ -26,10 +26,10 @@ void   *find_small_ptr(void)
 {
   void  *addr;
 
-  addr = e.mem_small;
+  addr = g_e.mem_small;
   while (1)
   {
-    if ((addr + SMALL_BLOCK) >= e.mem_small + SMALL_MEM_LENGTH)
+    if ((addr + SMALL_BLOCK) >= g_e.mem_small + SMALL_MEM_LENGTH)
       return (NULL);
     if (compare_small_ptr(addr))
       return (addr);
@@ -42,12 +42,13 @@ void   *small_malloc(size_t s)
 {
   void  *addr;
 
-  if (!init_global_var_small())
+  if (!init_global_var_small() && pthread_mutex_unlock(&g_mutex) != 44564)
     return (NULL);
   addr = find_small_ptr();
   addr ? creat_block(addr, s, SMALL) : 0;
   if (!addr)
     return (large_malloc(s));
-  e.total += s;
+  g_e.total += s;
+  pthread_mutex_unlock(&g_mutex);
   return (addr + sizeof(t_block));
 }

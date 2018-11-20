@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:12:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/15 19:33:20 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/20 22:00:43 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define SMALL_BLOCK	(SMALL_MAX + sizeof(t_block))
 # define SMALL_MEM_LENGTH (265 * getpagesize())
 
+# define MAGIC_FREE 145785245
+
 typedef struct s_block
 {
   int          free;
@@ -50,19 +52,22 @@ typedef struct s_malloc
   int          total;
 }              t_malloc;
 
-t_malloc e;
+t_malloc g_e;
+extern pthread_mutex_t g_mutex;
 
-void	         free2(void *ptr);
-void	         *malloc2(size_t s);
-void	         *realloc2(void *ptr, size_t size);
-void           *calloc2(size_t nmemb, size_t size);
+void	         free(void *ptr);
+void	         *malloc(size_t s);
+void	         *realloc(void *ptr, size_t size);
+void           *calloc(size_t nmemb, size_t size);
 void           show_alloc_mem();
 void           *tiny_malloc(size_t s);
 void           *small_malloc(size_t s);
 void           *large_malloc(size_t s);
 int            init_global_var();
+void           big_free(void);
 int            init_global_var_tiny();
 int            init_global_var_small();
+void           show_alloc_mem_hex(void *addr);
 void           creat_block(void *addr, int size, int type);
 
 #endif

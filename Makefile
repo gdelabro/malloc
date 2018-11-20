@@ -6,7 +6,7 @@
 #    By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/15 15:37:25 by gdelabro          #+#    #+#              #
-#    Updated: 2018/11/16 19:58:14 by gdelabro         ###   ########.fr        #
+#    Updated: 2018/11/20 22:01:39 by gdelabro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft_malloc_$(HOSTTYPE).so
 
 SRC_PATH = src
 SRC_NAME = malloc.c free.c creat_block.c tiny_malloc.c init_global_var.c\
-small_malloc.c large_malloc.c show_alloc_mem.c realloc.c
+small_malloc.c large_malloc.c show_alloc_mem.c show_alloc_mem_hex.c realloc.c
 
 OBJ_PATH = obj
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -33,7 +33,7 @@ LIBTEST = libft_malloc.a
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-all: $(LIB) test#$(NAME)
+all: $(LIB) $(NAME)#test
 
 $(LIB):
 	@make -C ft_printf

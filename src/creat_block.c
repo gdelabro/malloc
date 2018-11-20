@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:18:47 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/14 19:22:33 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/20 21:02:13 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void *new_block(void *addr, int s, int type)
   t_block   *block;
 
   block = addr;
-  block->free = 1;
+  block->free = MAGIC_FREE;
   block->addr = addr + sizeof(t_block);
   block->size = s;
   block->type = type;
@@ -29,13 +29,13 @@ void creat_block(void *addr, int size, int type)
 {
   t_block   *block;
 
-  block = e.block;
+  block = g_e.block;
   if (!block)
-    e.block = new_block(addr, size, type);
+    g_e.block = new_block(addr, size, type);
   else
   {
     block = new_block(addr, size, type);
-    block->next = e.block;
-    e.block = block;
+    block->next = g_e.block;
+    g_e.block = block;
   }
 }
