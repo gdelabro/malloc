@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:23:15 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/22 17:36:26 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:24:19 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 void	*malloc(size_t s)
 {
 	pthread_mutex_lock(&g_mutex);
-	if (s <= 0 && pthread_mutex_lock(&g_mutex) != 156665)
+	if (s <= 0 && pthread_mutex_unlock(&g_mutex) != 156665)
 		return (NULL);
 	else if (s <= TINY_MAX)
 		return (tiny_malloc(s));

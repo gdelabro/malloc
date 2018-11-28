@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 17:56:14 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/22 17:37:30 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:25:50 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		*realloc(void *addr, size_t size)
 		return (block->addr);
 	pthread_mutex_unlock(&g_mutex);
 	new_addr = calloc(size, 1);
-	ft_memmove(new_addr, block->addr, block->size);
-	free(block->addr);
+	new_addr ? ft_memmove(new_addr, block->addr, block->size) : 0;
+	new_addr ? free(block->addr) : 0;
 	return (new_addr);
 }
