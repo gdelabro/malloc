@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 16:12:56 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/22 17:52:11 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:15:15 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@
 
 # define TINY_MAX			128
 # define TINY_BLOCK			(TINY_MAX + sizeof(t_block))
-# define TINY_MEM_LENGTH	(15 * getpagesize())
 
 # define SMALL_MAX			1024
 # define SMALL_BLOCK		(SMALL_MAX + sizeof(t_block))
-# define SMALL_MEM_LENGTH	(265 * getpagesize())
 
 # define MAGIC_FREE			145785245
 

@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:44:58 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/22 17:40:14 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:13:32 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*find_small_ptr(void)
 	addr = g_e.mem_small;
 	while (1)
 	{
-		if ((addr + SMALL_BLOCK) >= g_e.mem_small + SMALL_MEM_LENGTH)
+		if ((addr + SMALL_BLOCK) >= g_e.mem_small + (265 * getpagesize()))
 			return (NULL);
 		if (compare_small_ptr(addr))
 			return (addr);

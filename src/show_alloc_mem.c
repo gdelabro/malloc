@@ -6,7 +6,7 @@
 /*   By: gdelabro <gdelabro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 19:57:13 by gdelabro          #+#    #+#             */
-/*   Updated: 2018/11/22 17:38:58 by gdelabro         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:12:58 by gdelabro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	show_tiny(void)
 
 	ft_printf("TINY: %#.8x\n", g_e.mem_tiny);
 	block = g_e.mem_tiny;
-	while (block && block < (t_block*)(g_e.mem_tiny + TINY_MEM_LENGTH))
+	while (block && block < (t_block*)(g_e.mem_tiny + (15 * getpagesize())))
 	{
 		if (block->free == MAGIC_FREE)
 			ft_printf("%#.8x - %#.8x : %d octets\n", block->addr,
@@ -37,7 +37,7 @@ void	show_small(void)
 
 	ft_printf("SMALL: %#.8x\n", g_e.mem_small);
 	block = g_e.mem_small;
-	while (block && block < (t_block*)(g_e.mem_small + SMALL_MEM_LENGTH))
+	while (block && block < (t_block*)(g_e.mem_small + (265 * getpagesize())))
 	{
 		if (block->free == MAGIC_FREE)
 			ft_printf("%#.8x - %#.8x : %d octets\n", block->addr,
